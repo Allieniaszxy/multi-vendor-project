@@ -14,7 +14,6 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-      {/* Product Image */}
       <div className="relative aspect-square bg-gray-100 dark:bg-gray-700">
         <Image
           src={product.image}
@@ -25,13 +24,11 @@ export default function ProductCard({
         />
       </div>
 
-      {/* Product Info */}
       <div className="p-4">
         <h3 className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2 mb-2 min-h-[2.5rem]">
           {product.title}
         </h3>
 
-        {/* Rating */}
         <div className="flex items-center gap-2 mb-2">
           <div className="flex items-center">
             <span className="text-yellow-400">★</span>
@@ -44,7 +41,6 @@ export default function ProductCard({
           </span>
         </div>
 
-        {/* Price */}
         <div className="flex items-center justify-between">
           <span className="text-xl font-bold text-gray-900 dark:text-white">
             ${product.price.toFixed(2)}
