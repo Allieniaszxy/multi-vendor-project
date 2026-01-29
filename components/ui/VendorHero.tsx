@@ -1,3 +1,5 @@
+"use client";
+
 import { Vendor } from "@/lib/types";
 import { Store } from "lucide-react";
 

@@ -12,17 +12,21 @@ export async function getProductsByCategory(
       `${API_BASE}/products/category/${encodeURIComponent(category)}`,
       {
         next: { revalidate: 3600 },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (compatible; PadisquareBot/1.0)",
+        },
       },
     );
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch products: ${response.status}`);
+      console.error(`API Error: ${response.status} - ${response.statusText}`);
+      return []; // Return empty array instead of throwing
     }
 
     return await response.json();
   } catch (error) {
     console.error("Error fetching products:", error);
-    throw error;
+    return []; // Return empty array on any error
   }
 }
 
