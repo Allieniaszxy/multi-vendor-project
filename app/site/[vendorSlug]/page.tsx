@@ -11,7 +11,7 @@ import ProductGrid from "@/components/ui/ProductGrid";
 import SearchBar from "@/components/ui/SearchBar";
 import SortDropdown from "@/components/ui/SortDropdown";
 import Pagination from "@/components/ui/Pagination";
-import { SortOption } from "@/lib/types";
+import { SortOption, Product } from "@/lib/types";
 
 interface PageProps {
   params: { vendorSlug: string };
@@ -50,7 +50,7 @@ export default async function VendorPage({ params, searchParams }: PageProps) {
     notFound();
   }
 
-  let allProducts = [];
+  let allProducts: Product[] = [];
   try {
     allProducts = await getProductsByCategory(vendor.category);
   } catch (error) {
